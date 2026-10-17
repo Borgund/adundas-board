@@ -1,0 +1,16 @@
+# BigWigs packager config. This file lives at the root of the public
+# addon-only repo (github.com/Borgund/adundas-board), published from the
+# private dev monorepo via `git subtree split --prefix=addon`. The packager
+# only looks for a TOC directly at the repo root by default, so move-folders
+# tells it where the real one is (same pattern the original repo-root
+# .pkgmeta used: a key of "<package-as>/<real path>" pointing at the folder
+# that actually holds the TOC, not a same-named move, which the packager
+# treats as "delete this and do nothing").
+package-as: AdundasBoard
+
+move-folders:
+  AdundasBoard/AdundasBoard: AdundasBoard
+
+ignore:
+  - tests
+  - README.md
