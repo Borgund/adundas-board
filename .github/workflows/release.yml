@@ -1,0 +1,24 @@
+# Push a tag like v0.1.0 to build AdundasBoard-v0.1.0.zip, attach it to a
+# GitHub release, and upload it to CurseForge and Wago if their tokens exist.
+name: Release addon
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # create the GitHub release
+    env:
+      GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+      WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # the packager builds the changelog from git history
+
+      - uses: BigWigsMods/packager@v2
