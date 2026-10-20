@@ -1,0 +1,17 @@
+## Interface: 16001
+## Title: Adundas Board
+## Notes: Guild leveling race board for Adundas on WoW Forever.
+## Author: Adrian
+## Version: @project-version@
+## Category: Guild
+## IconTexture: Interface\Icons\INV_Misc_Book_09
+## SavedVariables: AdundasBoardDB
+## AddonCompartmentFunc: AdundasBoard_OnCompartmentClick
+
+Core.lua
+Roster.lua
+Comm.lua
+Deaths.lua
+Board.lua
+Minimap.lua
+Options.lua
